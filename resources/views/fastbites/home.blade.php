@@ -21,6 +21,26 @@
         @media(max-width:850px){.footer-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}}
         @media(max-width:600px){.footer{padding-top:32px}.footer-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 16px;padding-bottom:25px}.footer-brand{grid-column:1/-1}.footer-brand p{max-width:360px}.footer-info{grid-template-columns:1fr;gap:18px;padding:18px 0}.footer-bottom{flex-direction:column;gap:7px;line-height:1.6}}
         @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+        .impact-row{gap:16px;margin:24px 0 58px}
+        .impact-card{--impact-accent:#357b4d;--impact-tint:#edf7eb;position:relative;isolation:isolate;display:flex;min-height:222px;flex-direction:column;align-items:stretch;justify-content:space-between;gap:22px;overflow:hidden;padding:21px 22px;border:1px solid #e5ebe2;border-radius:20px;background:linear-gradient(145deg,#fff 42%,var(--impact-tint));box-shadow:0 7px 20px rgba(37,67,40,.035);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+        .impact-card:before{position:absolute;z-index:-1;top:-59px;right:-47px;width:154px;height:154px;border:1px solid color-mix(in srgb,var(--impact-accent) 15%,transparent);border-radius:50%;box-shadow:0 0 0 17px color-mix(in srgb,var(--impact-accent) 5%,transparent),0 0 0 36px color-mix(in srgb,var(--impact-accent) 3%,transparent);content:"";transition:transform .35s ease}
+        .impact-savings{--impact-accent:#d18a34;--impact-tint:#fbf3e7}
+        .impact-purpose{--impact-accent:#43865a;--impact-tint:#edf6ed}
+        .impact-planet{--impact-accent:#378779;--impact-tint:#eaf5f1}
+        .impact-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+        .impact-card .impact-icon{width:50px;height:50px;border:1px solid color-mix(in srgb,var(--impact-accent) 12%,transparent);border-radius:16px;background:color-mix(in srgb,var(--impact-accent) 10%,white);font-size:23px;transition:transform .25s ease}
+        .impact-number{color:var(--impact-accent);font-size:9px;font-weight:800;letter-spacing:.12em}
+        .impact-copy strong{font-size:17px;letter-spacing:-.45px}
+        .impact-copy span{max-width:235px;margin-top:7px;color:#777f74;font-size:11px;line-height:1.6}
+        .impact-link{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px solid rgba(38,75,43,.1);color:var(--impact-accent);font-size:10px;font-weight:800}
+        .impact-link span{margin:0;color:inherit;font-size:17px;line-height:1;transition:transform .2s ease}
+        .impact-card:hover,.impact-card:focus-visible{transform:translateY(-5px);border-color:color-mix(in srgb,var(--impact-accent) 30%,white);box-shadow:0 18px 36px rgba(37,67,40,.11)}
+        .impact-card:focus-visible{outline:3px solid color-mix(in srgb,var(--impact-accent) 35%,white);outline-offset:3px}
+        .impact-card:hover:before,.impact-card:focus-visible:before{transform:scale(1.12) rotate(12deg)}
+        .impact-card:hover .impact-icon,.impact-card:focus-visible .impact-icon{transform:rotate(-7deg) scale(1.06)}
+        .impact-card:hover .impact-link span,.impact-card:focus-visible .impact-link span{transform:translateX(4px)}
+        @media(max-width:850px){.impact-card{min-height:218px;padding:18px}}
+        @media(max-width:600px){.impact-row{gap:11px;margin:13px 0 43px}.impact-card{min-height:0;gap:14px;padding:17px 18px;border-radius:17px}.impact-card .impact-icon{width:44px;height:44px;border-radius:14px}.impact-copy strong{font-size:16px}.impact-copy span{max-width:290px;font-size:11px}.impact-link{padding-top:10px}}
     </style>
 </head>
 <body>
@@ -67,9 +87,21 @@
     </section>
 
     <section class="shell impact-row" id="cara-kerja" aria-label="Keuntungan FastBites">
-        <article class="impact"><span class="impact-icon">💸</span><div><strong>Harga lebih hemat</strong><span>Nikmati makanan favorit dengan harga spesial</span></div></article>
-        <article class="impact"><span class="impact-icon">🍽️</span><div><strong>Makanan tetap berarti</strong><span>Pilih surplus yang masih layak dinikmati</span></div></article>
-        <article class="impact"><span class="impact-icon">🌍</span><div><strong>Kurangi food waste</strong><span>Langkah kecil untuk bumi yang lebih baik</span></div></article>
+        <a class="impact impact-card impact-savings" href="#produk">
+            <span class="impact-top"><span class="impact-icon" aria-hidden="true">💸</span><span class="impact-number">01 / LEBIH HEMAT</span></span>
+            <span class="impact-copy"><strong>Harga lebih hemat</strong><span>Nikmati makanan favorit dengan harga spesial, tanpa bikin kantong berat.</span></span>
+            <span class="impact-link">Temukan promo <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="impact impact-card impact-purpose" href="#produk">
+            <span class="impact-top"><span class="impact-icon" aria-hidden="true">🍽️</span><span class="impact-number">02 / PILIH BIJAK</span></span>
+            <span class="impact-copy"><strong>Makanan tetap berarti</strong><span>Pilih surplus yang masih layak dinikmati dan bantu makanan tak terbuang.</span></span>
+            <span class="impact-link">Pilih makanan <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="impact impact-card impact-planet" href="#produk">
+            <span class="impact-top"><span class="impact-icon" aria-hidden="true">🌍</span><span class="impact-number">03 / DAMPAK BAIK</span></span>
+            <span class="impact-copy"><strong>Kurangi food waste</strong><span>Langkah kecil dari pilihanmu hari ini, dampak baik untuk bumi.</span></span>
+            <span class="impact-link">Mulai berdampak <span aria-hidden="true">→</span></span>
+        </a>
     </section>
 
     <section class="shell section" id="produk">
