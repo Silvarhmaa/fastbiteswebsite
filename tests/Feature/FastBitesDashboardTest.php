@@ -14,8 +14,11 @@ class FastBitesDashboardTest extends TestCase
     {
         $this->get('/?role=admin')
             ->assertOk()
-            ->assertSee('Selamatkan makanan,')
+            ->assertSee('Makanan berlebih bukan berarti terbuang')
             ->assertSee('Bento Ayam Teriyaki')
+            ->assertSee('Layanan pelanggan')
+            ->assertSee('Metode pembayaran')
+            ->assertSee('Contoh teks footer')
             ->assertSee(route('login'))
             ->assertSee(route('register'));
 
@@ -58,8 +61,8 @@ class FastBitesDashboardTest extends TestCase
         $this->actingAs($seller)
             ->get(route('dashboard.seller'))
             ->assertOk()
-            ->assertSee('Dashboard usaha')
-            ->assertSee('Produk surplus kamu');
+            ->assertSee('Dashboard Merchant')
+            ->assertSee('Ruang kerja usahamu');
 
         $this->actingAs($consumer)
             ->get(route('dashboard.seller'))
@@ -74,10 +77,9 @@ class FastBitesDashboardTest extends TestCase
         $this->actingAs($admin)
             ->get(route('dashboard.admin'))
             ->assertOk()
-            ->assertSee('Dashboard admin')
-            ->assertSee('Pengajuan verifikasi usaha')
-            ->assertSee('Kedai Rasa Kita')
-            ->assertSee('Setujui');
+            ->assertSee('Dashboard Admin')
+            ->assertSee('Ruang kerja admin')
+            ->assertSee('verifikasi merchant');
 
         $this->actingAs($seller)
             ->get(route('dashboard.admin'))
@@ -117,20 +119,51 @@ class FastBitesDashboardTest extends TestCase
         ]);
     }
 
-    public function test_public_registration_cannot_assign_admin_role(): void
+    public function test_registration_page_offers_admin_role_and_invite_code_field(): void
     {
+        $this->get(route('register'))
+            ->assertOk()
+            ->assertSee('Admin — mengelola platform')
+            ->assertSee('Kode undangan admin');
+    }
+
+    public function test_admin_registration_requires_a_valid_invite_code(): void
+    {
+        config(['fastbites.admin_registration_code' => 'invite-secret']);
+
         $this->from(route('register'))
             ->post(route('register.store'), [
                 'name' => 'Admin Palsu',
                 'email' => 'admin@example.test',
                 'role' => 'admin',
+                'admin_registration_code' => 'wrong-code',
                 'password' => 'rahasia123',
                 'password_confirmation' => 'rahasia123',
             ])
             ->assertRedirect(route('register'))
-            ->assertSessionHasErrors('role');
+            ->assertSessionHasErrors('admin_registration_code')
+            ->assertSessionMissing('_old_input.admin_registration_code');
 
         $this->assertDatabaseMissing('users', ['email' => 'admin@example.test']);
+    }
+
+    public function test_admin_can_register_with_the_configured_invite_code(): void
+    {
+        config(['fastbites.admin_registration_code' => 'invite-secret']);
+
+        $this->post(route('register.store'), [
+            'name' => 'Admin FastBites',
+            'email' => 'admin@example.test',
+            'role' => 'admin',
+            'admin_registration_code' => 'invite-secret',
+            'password' => 'rahasia123',
+            'password_confirmation' => 'rahasia123',
+        ])->assertRedirect(route('dashboard.admin'));
+
+        $this->assertDatabaseHas('users', [
+            'email' => 'admin@example.test',
+            'role' => 'admin',
+        ]);
     }
 
     public function test_user_can_log_in_and_log_out(): void

@@ -45,9 +45,27 @@ class AuthController extends Controller
         $attributes = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
-            'role' => ['required', Rule::in(['consumer', 'seller'])],
+            'role' => ['required', Rule::in(['consumer', 'seller', 'admin'])],
+            'admin_registration_code' => ['required_if:role,admin', 'nullable', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+        if ($attributes['role'] === 'admin') {
+            $configuredCode = (string) config('fastbites.admin_registration_code');
+            $providedCode = (string) ($attributes['admin_registration_code'] ?? '');
+
+            if ($configuredCode === '' || ! hash_equals($configuredCode, $providedCode)) {
+                return back()
+                    ->withErrors([
+                        'admin_registration_code' => 'Kode undangan admin tidak valid atau belum dikonfigurasi.',
+                    ])
+                    ->withInput($request->except([
+                        'admin_registration_code',
+                        'password',
+                        'password_confirmation',
+                    ]));
+            }
+        }
 
         $user = User::create([
             'name' => $attributes['name'],

@@ -18,9 +18,14 @@ registration form; an existing administrator must provision them.
   `config/fastbites.php`.
 - Run `php artisan migrate` to add the user role field.
 - Open `/register` to create a consumer or seller account.
+- Admin registration is also available with an invitation code. Set a unique
+  `ADMIN_REGISTRATION_CODE` in the local `.env` file and share it only with
+  trusted administrators. Do not commit the code.
 - Open `/login` to sign in. Users are redirected to their own dashboard.
 - Dashboards are available at `/dashboard/consumer`, `/dashboard/seller`, and
   `/dashboard/admin`; access is restricted to the matching account role.
+  Merchant and admin dashboards have separate views, while the existing
+  consumer dashboard remains unchanged.
 
 To provision an administrator, run `php artisan tinker` and create an account
 with a securely chosen password:

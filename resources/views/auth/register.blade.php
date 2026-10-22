@@ -15,7 +15,7 @@
     <a class="brand" href="{{ url('/') }}"><span class="brand-mark">🥬</span><span>fastbites<em>.</em></span></a>
     <p class="eyebrow">Mulai selamatkan makanan</p>
     <h1>Buat akun FastBites</h1>
-    <p class="intro">Bergabung sebagai konsumen atau pemilik usaha kuliner.</p>
+    <p class="intro">Bergabung sebagai konsumen, pemilik usaha kuliner, atau admin.</p>
 
     @if($errors->any())
         <div class="notice" role="alert">Periksa kembali data yang kamu masukkan.</div>
@@ -38,8 +38,15 @@
             <select id="role" name="role" required>
                 <option value="consumer" @selected(old('role', 'consumer') === 'consumer')>Konsumen — membeli makanan surplus</option>
                 <option value="seller" @selected(old('role') === 'seller')>Pemilik usaha — menjual produk surplus</option>
+                <option value="admin" @selected(old('role') === 'admin')>Admin — mengelola platform</option>
             </select>
             @error('role')<span class="error">{{ $message }}</span>@enderror
+        </div>
+        <div class="field" id="admin-code-field" hidden>
+            <label for="admin_registration_code">Kode undangan admin</label>
+            <input id="admin_registration_code" name="admin_registration_code" type="password" autocomplete="off" aria-describedby="admin-code-hint">
+            <span class="hint" id="admin-code-hint">Minta kode undangan kepada pengelola platform.</span>
+            @error('admin_registration_code')<span class="error">{{ $message }}</span>@enderror
         </div>
         <div class="field">
             <label for="password">Kata sandi</label>
@@ -55,5 +62,19 @@
     </form>
     <p class="foot">Sudah punya akun? <a href="{{ route('login') }}">Masuk</a></p>
 </main>
+<script>
+    const roleSelect = document.querySelector('#role');
+    const adminCodeField = document.querySelector('#admin-code-field');
+    const adminCodeInput = document.querySelector('#admin_registration_code');
+
+    function updateAdminCodeField() {
+        const isAdmin = roleSelect.value === 'admin';
+        adminCodeField.hidden = !isAdmin;
+        adminCodeInput.required = isAdmin;
+    }
+
+    roleSelect.addEventListener('change', updateAdminCodeField);
+    updateAdminCodeField();
+</script>
 </body>
 </html>

@@ -17,6 +17,9 @@
         .seller-banner{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:66px;padding:27px 32px;border:1px solid #dce9dc;border-radius:17px;background:linear-gradient(110deg,#edf6e9,#fff)}.seller-banner h2{margin:0;font-size:20px;letter-spacing:-.5px}.seller-banner p{margin:6px 0 0;color:#777f75;font-size:12px;line-height:1.6}.seller-banner .button{flex:0 0 auto}.footer{padding:24px 0;border-top:1px solid var(--line);color:#858a82;font-size:10px}.footer-inner{display:flex;justify-content:space-between;gap:20px}.footer strong{color:#485148}
         @media(max-width:850px){.nav-links{gap:16px}.hero{min-height:365px;padding:38px}.hero-art{transform:scale(.82)}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.browse-tools{align-items:flex-start;flex-direction:column}.search{width:100%}.impact-row{margin-bottom:44px}}
         @media(max-width:600px){.shell{width:min(100% - 30px,480px)}.nav{min-height:66px;gap:10px}.brand{font-size:18px}.brand-mark{width:35px;height:35px}.nav-links{display:none}.nav-actions{gap:6px}.nav-actions .button{min-height:36px;padding:0 10px;font-size:10px}.nav-actions .button.light{display:none}.hero-wrap{padding-top:18px}.hero{grid-template-columns:1fr;min-height:0;padding:32px 25px 24px;border-radius:20px}.hero h1{font-size:42px;letter-spacing:-2px}.hero-copy>p:not(.eyebrow){font-size:12px}.hero-art{min-height:220px;margin-top:8px;transform:scale(.76)}.food-orbit{width:250px;height:250px}.food-main{width:170px;height:170px;font-size:88px}.floating-note.top{right:-22px}.floating-note.bottom{left:-20px}.impact-row{grid-template-columns:1fr;gap:9px;margin:13px 0 43px}.impact{padding:13px 15px}.section{padding-bottom:44px}.section-heading{align-items:flex-start}.section-heading h2{font-size:23px}.section-heading p{max-width:270px;line-height:1.5}.section-heading>a{padding-top:5px;white-space:nowrap}.chips{flex-wrap:nowrap;width:100%;overflow-x:auto;padding-bottom:5px}.chip{flex:0 0 auto}.product-grid{grid-template-columns:1fr;gap:12px}.product-card{display:grid;grid-template-columns:38% 1fr}.product-art{height:100%;min-height:178px}.product-art:before{width:130px;height:130px}.product-emoji{font-size:67px}.fresh-badge{right:7px;bottom:8px;padding:5px;font-size:8px}.product-details{padding:12px}.product-title{font-size:13px}.price{font-size:14px}.stock{font-size:9px}.product-link{padding:0 8px;font-size:9px}.seller-banner{align-items:flex-start;flex-direction:column;margin-bottom:42px;padding:22px}.seller-banner h2{font-size:18px}.footer-inner{flex-direction:column;gap:8px}}
+        .footer{padding:46px 0 0;border-top:1px solid #e8ebe5;color:#667064;background:#fff;font-size:11px}.footer-inner{display:block}.footer-main{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:38px;padding-bottom:35px}.footer-brand p{max-width:280px;margin:13px 0;color:#7a8177;line-height:1.8}.footer-title{margin:3px 0 15px;color:#30382f;font-size:12px;font-weight:800}.footer-links{display:grid;gap:11px}.footer-links a{width:fit-content;color:#737a70;transition:color .2s}.footer-links a:hover{color:var(--green)}.footer-social{display:flex;gap:8px;margin-top:16px}.footer-social a{display:grid;width:31px;height:31px;place-items:center;border:1px solid var(--line);border-radius:50%;color:#53614f;font-size:10px;font-weight:750}.footer-social a:hover{border-color:var(--green);color:var(--green)}.footer-info{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;padding:22px 0;border-top:1px solid #edf0eb}.footer-info-group{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.footer-info-group strong{width:100%;margin-bottom:3px;color:#465044;font-size:10px}.footer-tag{padding:6px 9px;border:1px solid #edf0eb;border-radius:5px;color:#737a70;background:#fafbf9;font-size:9px}.footer-bottom{display:flex;justify-content:space-between;gap:15px;margin-top:12px;padding:17px 0;border-top:1px solid #edf0eb;color:#858a82;font-size:10px}.footer-bottom strong{color:#485148}
+        @media(max-width:850px){.footer-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}}
+        @media(max-width:600px){.footer{padding-top:32px}.footer-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 16px;padding-bottom:25px}.footer-brand{grid-column:1/-1}.footer-brand p{max-width:360px}.footer-info{grid-template-columns:1fr;gap:18px;padding:18px 0}.footer-bottom{flex-direction:column;gap:7px;line-height:1.6}}
         @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
     </style>
 </head>
@@ -45,9 +48,9 @@
     <section class="shell hero-wrap">
         <div class="hero">
             <div class="hero-copy">
-                <p class="eyebrow">✨ Pilihan baik untuk hari ini</p>
-                <h1>Selamatkan makanan,<br><span>nikmati lebih hemat.</span></h1>
-                <p>Makanan surplus dari toko dan usaha kuliner di sekitarmu, masih layak dinikmati dan kini hadir dengan harga spesial.</p>
+                <p class="eyebrow">✨ Makanan berlebih bukan berarti terbuang</p>
+                <h1>Hemat tiap hari,<br><span>nikmati lebih berarti.</span></h1>
+                <p>Flash sale makanan surplus yang masih layak dinikmati—lebih hemat, tetap berkualitas, dan bantu kurangi food waste.</p>
                 <div class="hero-actions">
                     <a class="button" href="#produk">Jelajahi makanan <span aria-hidden="true">→</span></a>
                     <a class="button outline" href="#cara-kerja">Cara kerjanya</a>
@@ -116,7 +119,60 @@
 </main>
 
 <footer class="footer">
-    <div class="shell footer-inner"><span><strong>fastbites.</strong> Makanan enak, bumi lebih baik.</span><span>Contoh produk untuk pratinjau marketplace.</span></div>
+    <div class="shell footer-inner">
+        <div class="footer-main">
+            <section class="footer-brand" aria-label="Tentang FastBites">
+                <a class="brand" href="{{ route('home') }}"><span class="brand-mark">🥬</span><span>fastbites<em>.</em></span></a>
+                <p>Makanan berlebih bukan berarti terbuang. Temukan makanan enak dengan harga hemat sambil membantu mengurangi food waste.</p>
+                <div class="footer-social" aria-label="Media sosial">
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="TikTok">TK</a>
+                    <a href="#" aria-label="Facebook">FB</a>
+                </div>
+            </section>
+            <section>
+                <h2 class="footer-title">Layanan pelanggan</h2>
+                <nav class="footer-links" aria-label="Layanan pelanggan">
+                    <a href="{{ route('login') }}">Pusat bantuan</a>
+                    <a href="{{ route('login') }}">Cara berbelanja</a>
+                    <a href="{{ route('login') }}">Cara melakukan pemesanan</a>
+                    <a href="{{ route('login') }}">Hubungi kami</a>
+                </nav>
+            </section>
+            <section>
+                <h2 class="footer-title">Jelajahi FastBites</h2>
+                <nav class="footer-links" aria-label="Jelajahi FastBites">
+                    <a href="#produk">Makanan pilihan hari ini</a>
+                    <a href="#cara-kerja">Cara kerja FastBites</a>
+                    <a href="#mitra">Jadi mitra usaha</a>
+                    <a href="{{ route('register') }}">Buat akun</a>
+                </nav>
+            </section>
+            <section>
+                <h2 class="footer-title">Tentang kami</h2>
+                <nav class="footer-links" aria-label="Tentang FastBites">
+                    <a href="#mitra">Tentang FastBites</a>
+                    <a href="#cara-kerja">Misi kami</a>
+                    <a href="#mitra">Karier</a>
+                    <a href="#mitra">Kebijakan privasi</a>
+                </nav>
+            </section>
+        </div>
+        <div class="footer-info">
+            <div class="footer-info-group">
+                <strong>Metode pembayaran</strong>
+                <span class="footer-tag">Transfer bank</span><span class="footer-tag">Kartu debit/kredit</span><span class="footer-tag">E-wallet</span><span class="footer-tag">Bayar di tempat</span>
+            </div>
+            <div class="footer-info-group">
+                <strong>Layanan pengambilan</strong>
+                <span class="footer-tag">Ambil di toko</span><span class="footer-tag">Antar ke lokasi</span><span class="footer-tag">Pesanan terjadwal</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© {{ date('Y') }} <strong>FastBites</strong>. Semua hak dilindungi.</span>
+            <span>Contoh teks footer — silakan sesuaikan dengan informasi tokomu.</span>
+        </div>
+    </div>
 </footer>
 <script>
     const searchInput = document.querySelector('#product-search');

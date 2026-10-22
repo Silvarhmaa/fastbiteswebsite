@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'admin_registration_code' => env('ADMIN_REGISTRATION_CODE'),
+
     'products' => [
         ['name' => 'Bento Ayam Teriyaki', 'shop' => 'Dapur Nusa', 'category' => 'Makanan berat', 'price' => 18000, 'original' => 32000, 'stock' => 4, 'emoji' => '🍱', 'tone' => 'peach', 'expiry' => 'Hari ini'],
         ['name' => 'Croissant Butter', 'shop' => 'Roti Pagi', 'category' => 'Roti & pastry', 'price' => 9000, 'original' => 18000, 'stock' => 6, 'emoji' => '🥐', 'tone' => 'yellow', 'expiry' => 'Hari ini'],

@@ -45,9 +45,15 @@ Route::get('/dashboard', function () {
 })->middleware('auth')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    foreach (['consumer', 'seller', 'admin'] as $role) {
-        Route::get('/dashboard/'.$role, function () use ($role) {
-            return view('fastbites.dashboard', compact('role'));
+    $dashboards = [
+        'consumer' => 'fastbites.dashboard',
+        'seller' => 'fastbites.dashboard-seller',
+        'admin' => 'fastbites.dashboard-admin',
+    ];
+
+    foreach ($dashboards as $role => $view) {
+        Route::get('/dashboard/'.$role, function () use ($role, $view) {
+            return view($view, compact('role'));
         })->middleware('role:'.$role)->name('dashboard.'.$role);
     }
 });
