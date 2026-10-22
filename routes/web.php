@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
     $dashboards = [
         'consumer' => 'fastbites.dashboard',
         'seller' => 'fastbites.dashboard-seller',
-        'admin' => 'fastbites.dashboard-admin',
+        'admin' => 'fastbites.dashboard-seller',
     ];
 
     foreach ($dashboards as $role => $view) {
