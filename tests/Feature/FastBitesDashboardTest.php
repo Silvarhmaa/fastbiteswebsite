@@ -10,10 +10,28 @@ class FastBitesDashboardTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_guests_are_redirected_to_login_instead_of_selecting_a_role(): void
+    public function test_homepage_shows_the_marketplace_and_auth_links_for_guests(): void
     {
-        $this->get('/?role=admin')->assertRedirect(route('login'));
+        $this->get('/?role=admin')
+            ->assertOk()
+            ->assertSee('Selamatkan makanan,')
+            ->assertSee('Bento Ayam Teriyaki')
+            ->assertSee(route('login'))
+            ->assertSee(route('register'));
+
         $this->get(route('dashboard.admin'))->assertRedirect(route('login'));
+    }
+
+    public function test_authenticated_users_can_browse_the_marketplace_and_open_their_dashboard(): void
+    {
+        $seller = User::factory()->create(['role' => 'seller']);
+
+        $this->actingAs($seller)
+            ->get(route('home'))
+            ->assertOk()
+            ->assertSee('Croissant Butter')
+            ->assertSee(route('dashboard'))
+            ->assertSee(route('logout'));
     }
 
     public function test_consumer_is_redirected_to_the_consumer_dashboard(): void

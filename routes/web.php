@@ -16,8 +16,10 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return redirect()->route(Auth::check() ? 'dashboard' : 'login');
-});
+    return view('fastbites.home', [
+        'products' => config('fastbites.products'),
+    ]);
+})->name('home');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

@@ -13,6 +13,9 @@ The application includes session-based authentication for consumers and food
 business owners. Admin accounts cannot be created through the public
 registration form; an existing administrator must provision them.
 
+- The public homepage (`/`) is a food-surplus marketplace preview. Its sample
+  products are shared with the consumer dashboard and defined in
+  `config/fastbites.php`.
 - Run `php artisan migrate` to add the user role field.
 - Open `/register` to create a consumer or seller account.
 - Open `/login` to sign in. Users are redirected to their own dashboard.
